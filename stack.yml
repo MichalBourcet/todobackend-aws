@@ -18,7 +18,7 @@ Parameters:
   ApplicationImageTag:
     Type: String
     Description: Application Docker Image Tag
-    Default: 39cf279
+    Default: latest
   ApplicationSubnets:
     Type: List<AWS::EC2::Subnet::Id>
     Description: Target subnets for EC2 instances

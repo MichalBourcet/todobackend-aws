@@ -1,0 +1,9 @@
+{ 
+  "Parameters": {
+    "ApplicationDesiredCount": "1",
+    "ApplicationImageId": "ami-09bee01cc997a78a6",
+    "ApplicationImageTag": "latest",
+    "ApplicationSubnets": "subnet-00c1914542dd06c6a,subnet-087af6a717a85013b",
+    "VpcId": "vpc-0c31a347363b61d3d"
+  }
+}

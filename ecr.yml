@@ -3,6 +3,23 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: ECR Resources
 
 Resources:
+  CodebuildRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: alpulp/codebuild
+      RepositoryPolicyText:
+        Version: '2008-10-17'
+        Statement:
+          - Sid: RemoteAccountAccess
+            Effect: Allow
+            Principal:
+              AWS: arn:aws:iam::501492759978:root
+              Service: codebuild.amazonaws.com
+            Action:
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage
+              - ecr:BatchCheckLayerAvailability
+
   TodobackendRepository:
     Type: AWS::ECR::Repository
     Properties:
@@ -10,15 +27,15 @@ Resources:
       RepositoryPolicyText:
         Version: '2008-10-17'
         Statement:
-        - Sid: RemoteAccountAccess
-          Effect: Allow
-          Principal:
-            AWS: arn:aws:iam::501492759978:root    
-            Service: codebuild.amazonaws.com
-          Action:
-          - ecr:GetDownloadUrlForLayer
-          - ecr:BatchGetImage
-          - ecr:BatchCheckLayerAvailability
+          - Sid: RemoteAccountAccess
+            Effect: Allow
+            Principal:
+              AWS: arn:aws:iam::501492759978:root    
+              Service: codebuild.amazonaws.com
+            Action:
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage
+              - ecr:BatchCheckLayerAvailability
       LifecyclePolicy:
        LifecyclePolicyText: |
          {
